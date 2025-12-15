@@ -69,3 +69,35 @@ This is an agentic workflow engine that orchestrates multiple AI agents (ChatGPT
 ### Module Configuration
 - Go version: 1.25.3
 - Module name: `example-agentic-workflow-engine-go`
+
+## Container Deployment
+
+### Docker Build and Run
+```bash
+# Build the Docker image
+docker build -t agentic-workflow-engine .
+
+# Run the container with environment variables
+docker run -p 8080:8080 \
+  -e OPENAI_API_KEY='your-openai-api-key-here' \
+  -e ANTHROPIC_API_KEY='your-anthropic-api-key-here' \
+  -e GOOGLE_API_KEY='your-google-api-key-here' \
+  agentic-workflow-engine
+```
+
+### Docker Compose
+```bash
+# Set environment variables in .env file or export them
+export OPENAI_API_KEY='your-openai-api-key-here'
+export ANTHROPIC_API_KEY='your-anthropic-api-key-here'
+export GOOGLE_API_KEY='your-google-api-key-here'
+
+# Start the application
+docker-compose up --build
+
+# Run in detached mode
+docker-compose up -d --build
+
+# Stop the application
+docker-compose down
+```
